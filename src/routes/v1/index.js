@@ -20,6 +20,7 @@ router.post(
 router.get('/flights',FlightController.getAll) // get req, will get all the flights based on filter provided in query params.
 
 router.get('/flights/:id', FlightController.get) // get req with id, will get the flight with that id.
+router.patch('/flights/:id', FlightController.update) // patch req with id, will update the flight with that id.
 
 router.post("/airports", AirportController.create)
 router.delete("/airports/:id", AirportController.destroy)

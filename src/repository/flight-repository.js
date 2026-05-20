@@ -63,6 +63,24 @@ class FlightRepository{
         }
     }
 
+    async updateFlight(flightId, data){ // need id to update the specific flight once booking is done
+        try{
+            await Flights.update(data, {
+                where : {
+                    id: flightId
+                }
+            });
+            return true;
+        } catch(error){
+            throw new AppError(
+                'RepositoryError',
+                'Cannot update the booking',
+                'There was some error while updating the booking, please try again later',
+                StatusCodes.INTERNAL_SERVER_ERROR
+            )
+        }
+    }
+
 }
 
 
